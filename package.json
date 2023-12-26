@@ -1,0 +1,19 @@
+{
+  "name": "@whouu/create-app",
+  "version": "1.0.0",
+  "description": "Create an app powered by @whouu/create-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PassionZale/create-app.git"
+  },
+  "author": "Lei Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PassionZale/create-app/issues"
+  },
+  "homepage": "https://github.com/PassionZale/create-app#readme"
+}
