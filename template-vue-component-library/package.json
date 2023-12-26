@@ -1,0 +1,7 @@
+{
+  "name": "vue-component-library-starter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "基于 Vue3 Typescript Vite Vitepress 所构建的组件库模板",
+  "author": "@whouu/create-app"
+}

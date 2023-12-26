@@ -1,0 +1,7 @@
+{
+  "name": "react-admin-starter",
+  "version": "0.0.0",
+  "private": true,
+  "description": "基于 React@18 的管理后台模板",
+  "author": "@whouu/create-app"
+}

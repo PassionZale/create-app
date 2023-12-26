@@ -12,6 +12,10 @@
   ],
   "description": "Create an app powered by @whouu/create-app",
   "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild",
+    "prepublishOnly": "npm run build",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +24,9 @@
   },
   "author": "Lei Zhang",
   "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
   "bugs": {
     "url": "https://github.com/PassionZale/create-app/issues"
   },
