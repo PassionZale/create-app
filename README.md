@@ -35,3 +35,11 @@ yarn
 
 yarn dev
 ```
+
+If using Cli:
+
+```bash
+npm i -g @whouu/create-app
+
+create-app <project-name>
+```

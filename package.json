@@ -1,8 +1,16 @@
 {
   "name": "@whouu/create-app",
   "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "create-app": "index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
   "description": "Create an app powered by @whouu/create-app",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
