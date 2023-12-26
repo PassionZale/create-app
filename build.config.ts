@@ -1,7 +1,7 @@
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["src"],
+  entries: ["src/index"],
 
   clean: true,
 
@@ -11,7 +11,6 @@ export default defineBuildConfig({
     inlineDependencies: true,
 
     esbuild: {
-      target: "node16",
       minify: true,
     },
   },
