@@ -141,4 +141,4 @@ function getProjectName() {
   return targetDir === "." ? path.basename(path.resolve()) : targetDir;
 }
 
-init().catch((error) => console.error("init error: ", error));
+init().catch((error) => console.error(error));
