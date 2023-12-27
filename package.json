@@ -16,6 +16,9 @@
     "build": "unbuild",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -36,6 +39,7 @@
     "@types/prompts": "^2.4.9",
     "minimist": "^1.2.8",
     "prompts": "^2.4.2",
-    "unbuild": "^2.0.0"
+    "unbuild": "^2.0.0",
+    "vitepress": "^1.0.0-rc.22"
   }
 }
