@@ -1,6 +1,6 @@
 {
   "name": "@whouu/create-app",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "type": "module",
   "bin": {
     "create-app": "index.js"
@@ -16,6 +16,7 @@
     "build": "unbuild",
     "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit",
+    "release": "npm publish --registry https://registry.npmjs.org --access public",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs",
