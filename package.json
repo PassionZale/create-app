@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/PassionZale/create-app/issues"
   },
-  "homepage": "https://github.com/PassionZale/create-app#readme",
+  "homepage": "https://create-app.lovchun.com",
   "devDependencies": {
     "@types/minimist": "^1.2.5",
     "@types/prompts": "^2.4.9",
