@@ -6,7 +6,7 @@ Create an app powered by @whouu/create-app
 
 [create-app.lovchun.com](https://create-app.lovchun.com)
 
-#### 创建应用
+#### 快速开始
 
 ```bash
 # npm
