@@ -3,5 +3,92 @@
   "version": "0.0.0",
   "private": true,
   "description": "基于 Javascript 的小程序项目模板",
-  "author": "@whouu/create-app"
+  "scripts": {
+    "commit": "git-cz",
+    "make": "node ./scripts/generator/index",
+    "start": "gulp --env=dev",
+    "start:dev": "gulp --env=dev",
+    "start:sit": "gulp --env=sit",
+    "start:uat": "gulp --env=uat",
+    "start:prod": "gulp --env=prod",
+    "build:dev": "node ./scripts/ci/build --env=dev",
+    "build:sit": "node ./scripts/ci/build --env=sit",
+    "build:uat": "node ./scripts/ci/build --env=uat",
+    "build:prod": "node ./scripts/ci/build --env=prod",
+    "upload:dev": "node ./scripts/ci/upload --env=dev",
+    "upload:sit": "node ./scripts/ci/upload --env=sit",
+    "upload:uat": "node ./scripts/ci/upload --env=uat",
+    "upload:prod": "node ./scripts/ci/upload --env=prod",
+    "preview:dev": "node ./scripts/ci/preview --env=dev",
+    "preview:sit": "node ./scripts/ci/preview --env=sit",
+    "preview:uat": "node ./scripts/ci/preview --env=uat",
+    "preview:prod": "node ./scripts/ci/preview --env=prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@whouu/create-app",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,wxs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{scss,wxss}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.json": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "cli-color": "^2.0.2",
+    "cli-table3": "^0.6.2",
+    "del": "^6.0.0",
+    "dotenv-flow": "^3.2.0",
+    "fs-extra": "^10.1.0",
+    "gulp": "^4.0.2",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-json-format": "^2.0.0",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-miniprogram-path-alias": "^0.3.1",
+    "gulp-preprocess": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-zip": "^5.1.0",
+    "miniprogram-ci": "^1.8.18",
+    "require-dir": "^1.2.0",
+    "through2": "^4.0.2",
+    "yargs": "^17.4.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-angular": "^11.0.0",
+    "commitizen": "^4.2.2",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.2",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0"
+  }
 }

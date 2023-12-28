@@ -1,0 +1,33 @@
+{
+  "pages": ["home/pages/index/index", "home/pages/example/example"],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#f9f9f9",
+    "navigationBarTitleText": "",
+    "backgroundColor": "#F8F8F8",
+    "navigationStyle": "default",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "home/pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "home/pages/example/example",
+        "text": "示例"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "permission": {},
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 0,
+    "downloadFile": 30000
+  },
+  "plugins": {},
+  "subPackages": []
+}

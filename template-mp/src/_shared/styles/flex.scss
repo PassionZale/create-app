@@ -1,0 +1,85 @@
+.flex,
+.flex-center-xy,
+.flex-column,
+.flex-row {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-inline {
+  display: inline-flex;
+}
+
+// 主轴方向
+.flex-left {
+  justify-content: flex-start;
+}
+
+// 水平居中
+.flex-center {
+  justify-content: center;
+}
+
+// 右对齐
+.flex-right {
+  justify-content: flex-end;
+}
+
+// 两端对齐
+.flex-space-between {
+  justify-content: space-between;
+}
+
+// 元素四周留白
+.flex-space-around {
+  justify-content: space-around;
+}
+
+// 交叉轴方向
+.flex-top {
+  align-items: flex-start;
+}
+
+// 垂直居中
+.flex-middle {
+  align-items: center;
+}
+
+.flex-bottom {
+  align-items: flex-end;
+}
+
+.flex-stretch {
+  align-items: stretch;
+}
+
+// 伸缩元素换行
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// 分配剩余空间,铺满
+.flex-full {
+  flex: 1;
+}
+
+.flex-center-xy {
+  @extend .flex;
+  @extend .flex-center;
+  @extend .flex-middle;
+}

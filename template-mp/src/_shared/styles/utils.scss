@@ -1,0 +1,57 @@
+@import './themes.scss';
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+  word-break: break-all;
+}
+
+// 文字自动省略
+// 不可再弹性布局中使用，失效
+.ellipsis-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 弹性布局中实现1行打省略号
+.ellipsis-box {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.ellipsis-box-1 {
+  @extend .ellipsis-box;
+  -webkit-line-clamp: 1;
+}
+
+// 任意场景适用
+.ellipsis-2 {
+  @extend .ellipsis-box;
+  -webkit-line-clamp: 2;
+}
+
+.ellipsis-4 {
+  @extend .ellipsis-box;
+  -webkit-line-clamp: 4;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

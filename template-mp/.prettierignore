@@ -1,0 +1,11 @@
+node_modules/
+dist/
+build/
+
+/project.config.json
+/project.private.config.json
+src/sitemap.json
+src/_shared/vendors/
+
+*.md
+.cz-config.js

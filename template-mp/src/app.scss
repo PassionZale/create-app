@@ -1,0 +1,19 @@
+@import '@/_shared/styles/themes.scss';
+@import '@/_shared/styles/reset.scss';
+
+page {
+  background-color: $bg-color-default;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+@supports (bottom: constant(safe-area-inset-bottom)) {
+  .safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+@supports (bottom: env(safe-area-inset-bottom)) {
+  .safe-area {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}

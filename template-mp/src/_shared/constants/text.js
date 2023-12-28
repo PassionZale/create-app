@@ -1,0 +1,1 @@
+export const EXCEPTION_ERROR_MESSAGE = '网络开小差~'

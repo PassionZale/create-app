@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "mp-starter",
+  "backgroundColor": "#f6f6f6",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

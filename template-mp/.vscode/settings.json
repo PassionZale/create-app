@@ -1,0 +1,24 @@
+{
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.autoClosingQuotes": "always",
+  "javascript.preferences.quoteStyle": "single",
+  "files.associations": {
+    "*.wxss": "css",
+    "*.wxs": "javascript"
+  },
+  "files.eol": "\n",
+  "emmet.includeLanguages": {
+    "wxml": "html"
+  },
+  "wxmlConfig.onSaveFormat": true,
+  "wxmlConfig.format": {
+    "indent_char": " ",
+    "indent_size": 2,
+    "indent_with_tabs": false,
+    "wrap_attributes_count": 4,
+    "wrap_attributes": "force-expand-multiline"
+  },
+  "minapp-vscode.formatMaxLineCharacters": 80,
+  "minapp-vscode.documentSelector": ["none"]
+}
