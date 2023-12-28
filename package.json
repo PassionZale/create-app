@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "type": "module",
   "bin": {
-    "create-app": "index.js"
+    "@whouu/create-app": "index.js"
   },
   "files": [
     "index.js",
