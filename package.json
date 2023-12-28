@@ -2,9 +2,7 @@
   "name": "@whouu/create-app",
   "version": "0.0.5",
   "type": "module",
-  "bin": {
-    "@whouu/create-app": "index.js"
-  },
+  "bin": "index.js",
   "files": [
     "index.js",
     "template-*",
