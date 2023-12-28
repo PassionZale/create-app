@@ -2,44 +2,31 @@
 
 Create an app powered by @whouu/create-app
 
-```bash
-npm init @whouu/app <project-name>
+#### 在线文档
 
-cd <project-name>
+[create-app.lovchun.com](https://create-app.lovchun.com)
 
-npm install
-
-npm run dev
-```
-
-If using NPX:
+#### 创建应用
 
 ```bash
-npx @whouu/create-app <project-name>
+# npm
+npm create @whouu/app <project-name>
 
-cd <project-name>
-
-npm install
-
-npm run dev
-```
-
-If using Yarn:
-
-```bash
+# yarn
 yarn create @whouu/app <project-name>
 
-cd <project-name>
+# pnpm
+pnpm create @whouu/app <project-name>
 
-yarn
-
-yarn dev
-```
-
-If using Cli:
-
-```bash
+# cli
 npm i -g @whouu/create-app
 
 create-app <project-name>
 ```
+
+#### 模板列表
+
+- [template-mp](https://create-app.lovchun.com/template-mp.html)
+- [template-mp-ts](https://create-app.lovchun.com/template-mp-ts.html)
+- [template-react-admin](https://create-app.lovchun.com/template-react-admin.html)
+- [template-vue-component-library](https://create-app.lovchun.com/template-vue-component-library.html)
