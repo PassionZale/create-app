@@ -7,7 +7,7 @@ export default (): UserConfig => {
       exclude: ["vitepress"],
     },
     server: {
-      port: 9999,
+      port: 9000,
     },
   };
 };

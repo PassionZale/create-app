@@ -26,7 +26,7 @@ create-app <project-name>
 
 #### 模板列表
 
-- [template-mp](https://create-app.lovchun.com/template-mp.html)
-- [template-mp-ts](https://create-app.lovchun.com/template-mp-ts.html)
-- [template-react-admin](https://create-app.lovchun.com/template-react-admin.html)
-- [template-vue-component-library](https://create-app.lovchun.com/template-vue-component-library.html)
+- [mp-starter](https://create-app.lovchun.com/mp-starter.html)
+- [mp-ts-starter](https://create-app.lovchun.com/mp-ts-starter.html)
+- [react-admin-starter](https://create-app.lovchun.com/react-admin-starter.html)
+- [vue-cl-starter](https://create-app.lovchun.com/vue-cl-starter.html)
