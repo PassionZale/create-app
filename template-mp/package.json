@@ -6,6 +6,7 @@
   "scripts": {
     "commit": "git-cz",
     "make": "node ./scripts/generator/index",
+    "dev": "npm run start",
     "start": "gulp --env=dev",
     "start:dev": "gulp --env=dev",
     "start:sit": "gulp --env=sit",
