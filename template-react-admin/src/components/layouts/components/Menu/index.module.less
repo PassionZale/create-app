@@ -1,0 +1,63 @@
+.parentSiderMenu,
+.subSiderMenu {
+  padding: 10px;
+  box-sizing: unset;
+
+  * {
+    box-sizing: unset;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .title {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    user-select: none;
+  }
+
+  :global {
+    .ant-menu-inline {
+      border: none;
+      background: #fff;
+
+      .ant-menu-item::after {
+        border: none;
+      }
+    }
+    .ant-menu-vertical {
+      border: none;
+    }
+    .ant-menu-item-group-title {
+      padding: 8px 0;
+    }
+    .ant-menu-title-content {
+      user-select: none;
+    }
+  }
+}
+
+.subSiderMenu {
+  border-left: 1px solid #f0f0f0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  padding: 0 10px 10px 10px;
+}
