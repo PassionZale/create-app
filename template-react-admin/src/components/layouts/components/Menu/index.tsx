@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
-import { searchRoute } from '@/router'
 import * as Icons from '@ant-design/icons'
 import useMenuStore from '@/store/menu'
 import useTabStore from '@/store/tab'
@@ -9,6 +8,7 @@ import useTabStore from '@/store/tab'
 import styles from './index.module.less'
 
 import type { MenuProps } from 'antd'
+import { searchRoute } from '@/router'
 import { accessCheck } from '@/router/utils/AuthProvider'
 
 type MenuItem = Required<MenuProps>['items'][number] & Record<'data', Menu.MenuItem>
@@ -19,14 +19,7 @@ const flatMenus = (sourceData: Menu.MenuItem[] = [], nextData: MenuItem[] = []) 
   sourceData.forEach(item => {
     if (Array.isArray(item.children) && item.children.length) {
       nextData.push(
-        getMenuItem(
-          item,
-          item.id,
-          item.name,
-          item.icon,
-          flatMenus(item.children),
-          'group'
-        )
+        getMenuItem(item, item.id, item.name, item.icon, flatMenus(item.children))
       )
     } else {
       return nextData.push(getMenuItem(item, item.id, item.name, item.icon))
@@ -63,55 +56,37 @@ const LayoutMenu = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  // 一级菜单数据
-  const [parentMenus, setParentMenus] = useState<MenuItem[]>([])
-  // 一级菜单选中的 menu keys
-  const [selectedParentMenuKeys, setSelectedParentMenuKeys] = useState<string[]>([])
-  // 一级菜单选中的 menuItem （用来展示 标题）
-  const [selectedParentMenu, setSelectedParentMenu] = useState<Menu.MenuItem>()
+  // 菜单数据
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+  const [openKeys, setOpenKeys] = useState<string[]>([])
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([])
 
-  // 当前选中一级菜单的子菜单
-  const [subMenus, setSubMenus] = useState<MenuItem[]>([])
-  const [subMenusOpenKeys, setSubMenuOpenKeys] = useState<string[]>([])
-  // 子菜单选中的 menu keys
-  const [selectedSubMenuKeys, setSelectedSubMenuKeys] = useState<string[]>([])
+  // 将接口返回的 menus 转换为 <Menu /> 的 items 数据结构
+  useEffect(() => {
+    if (Array.isArray(menus) && menus.length) {
+      const menuItems = flatMenus(menus)
+
+      setMenuItems(menuItems)
+    }
+  }, [menus])
 
   useEffect(() => {
     if (menuTree && location.pathname) {
       const found = menuTree.first({ strategy: 'post' }, node => {
-        return node.model.link === location.pathname
+        return location.pathname.indexOf(node.model.link) > -1
       })
 
-      // 如果菜单中包含当前 location.pathname, 说明当前用户定有菜单权限, 可以直接添加页签
       if (found) {
-        // 第一个元素为自行添加的 root 节点, 忽略
-        // 第二个元素为一级菜单
-        // 后面的元素为所有的子节点
-        const [_, parentMenu, ...subMenus] = found.getPath()
+        const menuPath = found.getPath()
 
-        // 初始化一级菜单展开和选中项
-        setSelectedParentMenuKeys([parentMenu.model.id])
-        setSelectedParentMenu(parentMenu.model)
+        const [_, parentMenu, subMenu] = menuPath
 
-        // 如果一级菜单还有子菜单, 则开始初始化子菜单
         if (parentMenu.hasChildren()) {
-          // 初始化子菜单数据
-          setSubMenus(flatMenus(parentMenu.model.children))
-
-          // 初始化子菜单展开
-          const selectedSubMenuKeys = subMenus.map(item => item.model.id)
-
-          setSubMenuOpenKeys(
-            selectedSubMenuKeys.filter(
-              (_, index) => index < selectedSubMenuKeys.length - 1
-            )
-          )
-          setSelectedSubMenuKeys(selectedSubMenuKeys)
+          setOpenKeys([parentMenu.model.id])
+          setSelectedKeys([subMenu.model.id])
         } else {
-          // 如果一级菜单没有子菜单, 则清空子菜单相关的数据
-          setSubMenus([])
-          setSubMenuOpenKeys([])
-          setSelectedSubMenuKeys([])
+          setOpenKeys([])
+          setSelectedKeys([parentMenu.model.id])
         }
 
         if (found.model.link === location.pathname) {
@@ -120,73 +95,42 @@ const LayoutMenu = () => {
             key: location.pathname,
             link: found.model.link!
           })
-        }
-      } else {
-        setSelectedSubMenuKeys([])
-        // 若菜单中不包含 location.pathname, 说明其可能是三级或四级路由,从 routes 中筛选获得
-        const route = searchRoute(location.pathname)
+        } else {
+          const route = searchRoute(location.pathname)
 
-        // 根据找到的路由配置项, 判断当前用户是否有权限
-        const hasPermission = accessCheck(route.meta?.authKey)
+          // 根据找到的路由配置项, 判断当前用户是否有权限
+          const hasPermission = accessCheck(route.meta?.authKey)
 
-        // 只有拥有权限才添加页签
-        if (hasPermission) {
-          addTab({
-            label: route.meta?.title as string,
-            key: location.pathname,
-            link: `${location.pathname}${location.search}`
-          })
+          // 只有拥有权限才添加页签
+          if (hasPermission) {
+            addTab({
+              label: route.meta?.title as string,
+              key: location.pathname,
+              link: `${location.pathname}${location.search}`
+            })
+          }
         }
       }
     }
   }, [menuTree, location, addTab, navigate])
 
-  useEffect(() => {
-    if (Array.isArray(menus) && menus.length) {
-      const parentMenus = menus.map(item => {
-        return getMenuItem(item, item.id, item.name, item.icon)
-      })
-
-      setParentMenus(parentMenus)
-    }
-  }, [menus])
-
-  // 一级菜单选择
-  const onParentMenuSelect: MenuProps['onSelect'] = payload => {
-    const { selectedKeys } = payload
-
-    const found = menus!.find(item => selectedKeys.includes(item.id))!
-
-    if (found.link) {
-      return navigateTo(found)
-    }
-
-    setSelectedParentMenuKeys(selectedKeys)
-    setSelectedParentMenu(found)
-
-    if (Array.isArray(found.children) && found.children.length) {
-      const subMenus = flatMenus(found.children)
-
-      setSubMenus(subMenus)
-    } else {
-      setSubMenus([])
-    }
+  // subMenu 展开
+  const onOpenChange: MenuProps['onOpenChange'] = openKeys => {
+    setOpenKeys(openKeys)
   }
 
-  // 子菜单选择
-  const onSubMenuSelect: MenuProps['onSelect'] = payload => {
-    const { selectedKeys, item } = payload
-
+  // MenuItem 选中
+  const onSelect: MenuProps['onSelect'] = ({ selectedKeys, item }) => {
     // @ts-ignore
-    const subMenuItem = item.props.data as Menu.MenuItem
+    const menuItem = item.props.data as Menu.MenuItem
 
-    const { link } = subMenuItem
+    const { link } = menuItem
 
     if (link) {
-      return navigateTo(subMenuItem)
+      return navigateTo(menuItem)
     }
 
-    setSelectedSubMenuKeys(selectedKeys)
+    setSelectedKeys(selectedKeys)
   }
 
   const navigateTo = (menu: Menu.MenuItem) => {
@@ -201,31 +145,20 @@ const LayoutMenu = () => {
 
   return (
     <>
-      <Layout.Sider className={styles.parentSiderMenu} width={100} theme={'light'}>
-        <img className={styles.logo} src={'/icon-512.png'} />
-        <Menu
-          items={parentMenus}
-          theme="light"
-          selectedKeys={selectedParentMenuKeys}
-          onSelect={onParentMenuSelect}
-        />
-      </Layout.Sider>
-
-      <Layout.Sider className={styles.subSiderMenu} width={140} theme={'light'}>
-        <div className={styles.title}>{selectedParentMenu?.name}</div>
+      <Layout.Sider width={200} theme="light">
+        <div className={styles.logo}>
+          <img src={'/icon-512.png'} />
+          <div>react-admin-starter</div>
+        </div>
 
         <Menu
-          style={{ width: 100 }}
-          items={subMenus}
-          theme="light"
           mode="inline"
           motion={{ motionLeaveImmediately: true }}
-          inlineIndent={10}
-          openKeys={subMenusOpenKeys}
-          selectedKeys={selectedSubMenuKeys}
-          onOpenChange={openKeys => setSubMenuOpenKeys(openKeys)}
-          onSelect={onSubMenuSelect}
-          triggerSubMenuAction={'click'}
+          items={menuItems}
+          openKeys={openKeys}
+          selectedKeys={selectedKeys}
+          onOpenChange={onOpenChange}
+          onSelect={onSelect}
         />
       </Layout.Sider>
     </>

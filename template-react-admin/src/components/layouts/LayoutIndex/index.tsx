@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd'
 import { AuthLoginGuard, AuthAccessGuard } from '@/router/utils/AuthProvider'
 import Loading from '@/components/Loading'
@@ -15,8 +15,6 @@ import { request } from '@/utils'
 import styles from './index.module.less'
 
 const LayoutIndex = () => {
-  const location = useLocation()
-
   const userInfo = useUserStore(state => state.userInfo)
 
   const permissions = usePermissionStore(state => state.permissions)
@@ -76,7 +74,7 @@ const LayoutIndex = () => {
                 <Outlet />
               </Layout.Content>
 
-              {location.pathname === '/home' ? <LayoutFooter /> : null}
+              <LayoutFooter />
             </Layout>
           </section>
         </AuthAccessGuard>

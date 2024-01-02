@@ -27,21 +27,43 @@ export default defineMock([
         {
           id: '2',
           parentId: '0',
-          name: '页面一',
+          name: '导航一',
           icon: 'AppstoreAddOutlined',
           children: [
             {
               id: '2-1',
               parentId: '2',
-              name: '子页面1',
-              link: '/page1/page-11',
+              name: '列表1',
+              link: '/nav1/nav1-1',
               children: []
             },
             {
               id: '2-2',
               parentId: '2',
-              name: '子页面2',
-              link: '/page1/page-12',
+              name: '列表2',
+              link: '/nav1/nav1-2',
+              children: []
+            }
+          ]
+        },
+        {
+          id: '3',
+          parentId: '0',
+          name: '导航二',
+          icon: 'DesktopOutlined',
+          children: [
+            {
+              id: '3-1',
+              parentId: '3',
+              name: '列表3',
+              link: '/nav2/nav2-1',
+              children: []
+            },
+            {
+              id: '3-2',
+              parentId: '3',
+              name: '列表4',
+              link: '/nav2/nav2-2',
               children: []
             }
           ]
