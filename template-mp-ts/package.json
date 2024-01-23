@@ -1,7 +1,0 @@
-{
-  "name": "mp-ts-starter",
-  "version": "0.0.0",
-  "private": true,
-  "description": "基于 Typescript 的小程序项目模板",
-  "author": "@whouu/create-app"
-}

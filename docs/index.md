@@ -19,11 +19,6 @@ features:
     title: mp-starter
     details: 基于 Javascript 的小程序模板
 
-  - icon: 
-      src: /images/miniprorgam.svg
-    title: mp-ts-starter
-    details: 基于 Typescript 的小程序模板
-
   - icon:
       src: /images/react.svg
     title: react-admin-starter

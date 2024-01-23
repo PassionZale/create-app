@@ -13,7 +13,6 @@ export const sidebar = {
       text: "模板",
       items: [
         { text: "mp-starter", link: "/templates/mp-starter" },
-        { text: "mp-ts-starter", link: "/templates/mp-ts-starter" },
         { text: "react-admin-starter", link: "/templates/react-admin-starter" },
         {
           text: "vue-cl-starter",

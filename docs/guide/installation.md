@@ -21,6 +21,5 @@ create-app <project-name>
 ### 模板列表
 
 - [mp-starter](/templates/mp-starter.html)
-- [mp-ts-starter](/templates/mp-ts-starter.html)
 - [react-admin-starter](/templates/react-admin-starter.html)
 - [vue-cl-starter](/templates/vue-cl-starter.html)
