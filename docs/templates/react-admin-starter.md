@@ -1,5 +1,11 @@
 # react-admin-starter
 
+基于 `vite@4` `react@18` `react-router@6` `antd@4` 所构建的管理后台，
+
+使用 `zustand` 存储全局状态，
+
+使用 `react-activation` 实现多页签。
+
 ## 脚本说明
 
 ```json
