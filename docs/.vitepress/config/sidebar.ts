@@ -14,10 +14,6 @@ export const sidebar = {
       items: [
         { text: "mp-starter", link: "/templates/mp-starter" },
         { text: "react-admin-starter", link: "/templates/react-admin-starter" },
-        {
-          text: "vue-cl-starter",
-          link: "/templates/vue-cl-starter",
-        },
       ],
     },
   ],

@@ -28,4 +28,3 @@ create-app <project-name>
 
 - [mp-starter](https://create-app.lovchun.com/mp-starter.html)
 - [react-admin-starter](https://create-app.lovchun.com/react-admin-starter.html)
-- [vue-cl-starter](https://create-app.lovchun.com/vue-cl-starter.html)

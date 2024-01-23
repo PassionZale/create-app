@@ -23,9 +23,4 @@ features:
       src: /images/react.svg
     title: react-admin-starter
     details: 基于 React 的管理后台模板
-    
-  - icon:
-      src: /images/vue.svg
-    title: vue-cl-starter
-    details: 基于 Vue 所构建的组件库模板
 ---

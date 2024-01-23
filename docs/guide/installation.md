@@ -22,4 +22,3 @@ create-app <project-name>
 
 - [mp-starter](/templates/mp-starter.html)
 - [react-admin-starter](/templates/react-admin-starter.html)
-- [vue-cl-starter](/templates/vue-cl-starter.html)
