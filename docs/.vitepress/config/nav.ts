@@ -9,7 +9,7 @@ export const nav = [
   {
     text: '模板',
     activeMatch: '^/templates/',
-    link: '/templates/mp-starter'
+    link: '/templates/cli-starter'
   },
   {
     text: `v${version}`,

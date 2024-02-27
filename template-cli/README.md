@@ -1,6 +1,15 @@
 # cli-starter
 
-基于 `unbuild` 的脚手架
+基于 unbuild 的脚手架模板
+
+#### 快速开始
+
+项目名称 `<project-name>` 
+
+```shell
+# 选择 template-cli 模板创建应用
+npm create @whouu/app <project-name>
+```
 
 #### 脚本说明
 

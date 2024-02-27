@@ -12,6 +12,7 @@ export const sidebar = {
     {
       text: "模板",
       items: [
+        { text: "cli-starter", link: "/templates/cli-starter" },
         { text: "mp-starter", link: "/templates/mp-starter" },
         { text: "react-admin-starter", link: "/templates/react-admin-starter" },
       ],
