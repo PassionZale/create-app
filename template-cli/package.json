@@ -5,9 +5,7 @@
 	"description": "基于 unbuild 的脚手架",
   "author": "@whouu/create-app",
   "type": "module",
-  "bin": {
-    "create-app": "index.js"
-  },
+  "bin": "index.js",
   "files": [
     "index.js",
     "template-*",
