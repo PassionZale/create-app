@@ -91,8 +91,36 @@ create-cli-app <project-name>
 
 在使用 `scoped` 的方式，会与上述的方法有一些区别：
 
-- 命名方式：`@scope/create-*`
+- 命名方式：`@scoped/create-*`
 - 发布方式：`npm publish --registry https://registry.npmjs.org --access public`
+- 声明方式：
+	```json
+	# 假定你的包名为：@whouu/create-app
+	
+	{
+		"name": "@whouu/create-app",
+		"bin": {
+			"create-app": "index.js"
+		}
+	}
+	```
+- 使用方式：
+
+	```shell
+	# 假定你的包名为：@whouu/create-app
+
+	# 方法一. npx
+	npx @whouu/create-app <project-name>
+	# 方法二. npm
+	npm create @whouu/app <project-name>
+	# 方法三. yarn
+	yarn create @whouu/app <project-name>
+	# 方法四. pnpm
+	pnpm create @whouu/app <project-name>
+	# 方法五. cli
+	npm i -g @whouu/create-app
+	create-app <project-name>
+	```
 
 > 每次执行 `npm publish` 前需要更改版本号，如果不使用第三方库，例如：[release-it](https://github.com/release-it/release-it)
 
