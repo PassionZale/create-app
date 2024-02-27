@@ -14,6 +14,11 @@ hero:
       link: /guide/introduction
 
 features:
+  - icon:
+      src: /images/cli.svg
+    title: cli-starter
+    details: 基于 unbuild 的脚手架模板
+
   - icon: 
       src: /images/miniprorgam.svg
     title: mp-starter

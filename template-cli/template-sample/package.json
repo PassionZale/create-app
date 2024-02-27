@@ -1,0 +1,7 @@
+{
+	"name": "template-sample",
+  "version": "0.0.0",
+	"private": true,
+	"description": "模板示例",
+	"author": "@whouu/create-app"
+}

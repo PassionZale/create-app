@@ -1,6 +1,6 @@
 {
   "name": "@whouu/create-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "bin": {
     "create-app": "index.js"

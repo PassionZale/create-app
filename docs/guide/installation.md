@@ -20,5 +20,6 @@ create-app <project-name>
 
 ### 模板列表
 
+- [cli-starter](/templates/cli-starter.html)
 - [mp-starter](/templates/mp-starter.html)
 - [react-admin-starter](/templates/react-admin-starter.html)

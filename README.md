@@ -26,5 +26,6 @@ create-app <project-name>
 
 #### 模板列表
 
-- [mp-starter](https://create-app.lovchun.com/mp-starter.html)
-- [react-admin-starter](https://create-app.lovchun.com/react-admin-starter.html)
+- [cli-starter](https://create-app.lovchun.com/templates/cli-starter.html)
+- [mp-starter](https://create-app.lovchun.com/templates/mp-starter.html)
+- [react-admin-starter](https://create-app.lovchun.com/templates/react-admin-starter.html)
