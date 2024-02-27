@@ -1,3 +1,3 @@
 <template>
-  <img src="/icon-192.png" v-bind="$attrs" />
+  <img src="/android-chrome-192x192.png" v-bind="$attrs" />
 </template>
