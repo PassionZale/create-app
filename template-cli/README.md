@@ -1,6 +1,6 @@
 # cli-starter
 
-基于 unbuild 的脚手架模板
+基于 `unbuild` 的脚手架模板
 
 #### 快速开始
 
