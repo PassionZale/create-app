@@ -10,16 +10,10 @@ Create an app powered by @whouu/create-app
 
 ```bash
 # npm
-npm create @whouu/app <project-name>
-
-# yarn
-yarn create @whouu/app <project-name>
-
-# pnpm
-pnpm create @whouu/app <project-name>
+npm create @whouu/app@latest <project-name>
 
 # cli
-npm i -g @whouu/create-app
+npm i -g @whouu/create-app@latest
 
 create-app <project-name>
 ```
